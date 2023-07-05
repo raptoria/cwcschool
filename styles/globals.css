@@ -1,0 +1,23 @@
+:root {
+    --primary-color: white;
+    --secondary-color: #1bcbff;
+    --tertiary-color: #55acee;
+    --quaternary-color: #333333;
+    --neutral-color: black;
+    --accent-color: #ffe000;
+    --secondary-accent-color: rgb(93, 29, 135);
+    --space-lg: 5rem;
+    --space-md: 2rem;
+    --space-sm: 1rem;
+  }
+
+  body {
+    color: var(--neutral-color);
+    margin: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: Bitter, Georgia, serif;
+    line-height: 1.3;
+  }
+ 

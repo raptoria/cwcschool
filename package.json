@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.1.4",
     "@next/font": "^13.1.6",
     "@types/node": "18.11.9",
     "@types/react": "18.0.24",
@@ -25,5 +26,8 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26"
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }

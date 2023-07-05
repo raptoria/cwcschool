@@ -1,4 +1,5 @@
-import StyledComponentsRegistry from "@/lib/registry";
+import StyledComponentsRegistry from '@/lib/registry';
+import '@/styles/globals.css';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
