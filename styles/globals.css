@@ -33,10 +33,3 @@
     font-size: 1.4rem;
   }
 
-  div.metadata {
-  display: grid;
-  grid-template-columns: repeat(2,max-content);
-  grid-gap: var(--space-md);
-  margin-bottom: var(--space-md);
-  font-size: 1.0rem;
-}

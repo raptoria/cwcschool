@@ -1,6 +1,19 @@
 'use client';
 import Image from 'next/image';
 import { UserOutlined, ClockCircleOutlined } from '@ant-design/icons';
+import { styled } from '@linaria/react';
+
+const StyledMetadata = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  grid-gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  font-size: 1rem;
+
+  h2 {
+    margin-bottom: var(--space-x-sm);
+  }
+`;
 
 type Props = {
   title: string;
@@ -27,7 +40,7 @@ const Post = ({
   return (
     <>
       <h2>{title}</h2>
-      <div className="metadata">
+      <StyledMetadata>
         {date ? (
           <div>
             <ClockCircleOutlined
@@ -53,7 +66,7 @@ const Post = ({
             {author}
           </div>
         ) : null}
-      </div>
+      </StyledMetadata>
       {imageSrc ? (
         <Image
           src={imageSrc}
