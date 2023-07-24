@@ -8,6 +8,7 @@ const StyledHeader = styled.header`
   background: url(/assets/images/headerbg.png) no-repeat scroll top;
   display: grid;
   padding: var(--space-md);
+  justify-content: center;
 
   h1 {
     margin-bottom: 0;

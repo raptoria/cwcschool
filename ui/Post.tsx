@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { styled } from '@linaria/react';
 
-export const StyledHeader = styled.h3`
+export const StyledHeader = styled.h2`
   color: var(--secondary-accent-color);
 `;
 

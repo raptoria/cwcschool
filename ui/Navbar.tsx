@@ -12,6 +12,7 @@ const StyledNav = styled.nav`
     background: var(--secondary-color);
     font-family: var(--default-font);
     font-size: var(--space-s);
+    justify-content: center;
   }
 `;
 
