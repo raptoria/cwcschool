@@ -1,4 +1,16 @@
-import '@/styles/globals.css';
+import { Source_Sans_Pro, Bitter } from 'next/font/google';
+
+const primaryFont = Source_Sans_Pro({
+  subsets: ['latin'],
+  weight: '300',
+  variable: '--default-font',
+});
+
+const headerFont = Bitter({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--header-font',
+});
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -8,7 +20,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <meta name="robots" content="noindex" />
         <title>Clearwater Chinese School</title>
       </head>
-      <body>
+      <body className={`${primaryFont.variable} ${headerFont.variable}`}>
         <div>{children}</div>
       </body>
     </html>

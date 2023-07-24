@@ -15,7 +15,7 @@ const StyledHeader = styled.header`
     font-size: 3rem;
   }
 
-  h2 {
+  h3 {
     font-style: italic;
     font-weight: 300;
   }
@@ -34,9 +34,9 @@ const Header: React.FC<HeaderProps> = () => {
           Clearwater Chinese School
         </a>
       </h1>
-      <h2>
+      <h3>
         4600 78th Ave., N., Pinellas Park, Florida, 33781 ~ (727) 544-5748
-      </h2>
+      </h3>
     </StyledHeader>
   );
 };

@@ -11,7 +11,6 @@ const StyledNav = styled.nav`
   ul {
     background: var(--secondary-color);
     font-family: var(--default-font);
-    font-size: var(--space-s);
     justify-content: center;
   }
 `;
