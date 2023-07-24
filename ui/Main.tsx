@@ -7,6 +7,7 @@ const StyledMain = styled.main`
   display: grid;
   grid-auto-columns: 50rem;
   justify-content: center;
+  margin: var(--space-md);
 `;
 
 function Main() {
@@ -35,6 +36,8 @@ function Main() {
             imageWidth,
             imageHeight,
             content,
+            author,
+            date,
           }) => (
             <Post
               key={title}
@@ -43,6 +46,8 @@ function Main() {
               postType={postType}
               imageSrc={imageSrc}
               imageAlt={imageAlt}
+              author={author}
+              date={date}
               imageWidth={parseInt(imageWidth) || 200}
               imageHeight={parseInt(imageHeight) || 200}
             />

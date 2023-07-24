@@ -1,5 +1,3 @@
-'use client';
-
 import { styled } from '@linaria/react';
 
 interface HeaderProps {}

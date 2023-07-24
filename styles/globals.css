@@ -1,10 +1,12 @@
 :root {
-    --primary-color: white;
-    --secondary-color: #f7f5e7;
+    --primary-color: #ed0e05;
+    --secondary-color: #fe9236;
+    --tertiary-color:#f7f5e7;
     --neutral-color: black;
     --space-lg: 5rem;
     --space-md: 2rem;
     --space-sm: 1rem;
+    --space-x-sm: 0.5rem;
   }
 
   body {
@@ -30,3 +32,11 @@
   h3 {
     font-size: 1.4rem;
   }
+
+  div.metadata {
+  display: grid;
+  grid-template-columns: repeat(2,max-content);
+  grid-gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  font-size: 1.0rem;
+}

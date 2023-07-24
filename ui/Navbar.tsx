@@ -9,7 +9,7 @@ interface NavProps {}
 
 const StyledNav = styled.nav`
   ul {
-    background: var(--secondary-color);
+    background: var(--tertiary-color);
     font-family: var(--default-font);
     justify-content: center;
   }

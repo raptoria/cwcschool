@@ -1,10 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { styled } from '@linaria/react';
-
-export const StyledHeader = styled.h2`
-  color: var(--secondary-accent-color);
-`;
+import { UserOutlined, ClockCircleOutlined } from '@ant-design/icons';
 
 type Props = {
   title: string;
@@ -14,6 +10,8 @@ type Props = {
   imageSrc: string;
   imageAlt: string;
   content: any;
+  date: string;
+  author: string;
 };
 
 const Post = ({
@@ -23,10 +21,39 @@ const Post = ({
   imageSrc = '',
   imageAlt = '',
   content,
+  date,
+  author,
 }: Props) => {
   return (
     <>
-      <StyledHeader>{title}</StyledHeader>
+      <h2>{title}</h2>
+      <div className="metadata">
+        {date ? (
+          <div>
+            <ClockCircleOutlined
+              rev="author"
+              style={{
+                color: `var(--primary-color)`,
+                marginRight: `var(--space-x-sm)`,
+              }}
+            />
+            {date}
+          </div>
+        ) : null}
+
+        {author ? (
+          <div>
+            <UserOutlined
+              rev="author"
+              style={{
+                color: `var(--secondary-color)`,
+                marginRight: `var(--space-x-sm)`,
+              }}
+            />
+            {author}
+          </div>
+        ) : null}
+      </div>
       {imageSrc ? (
         <Image
           src={imageSrc}
@@ -36,7 +63,9 @@ const Post = ({
           height={imageHeight}
         />
       ) : undefined}
+
       <div dangerouslySetInnerHTML={{ __html: content }} />
+      <p />
     </>
   );
 };
