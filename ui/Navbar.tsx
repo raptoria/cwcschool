@@ -3,8 +3,17 @@
 import React, { useState } from 'react';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
+import { styled } from '@linaria/react';
 
 interface NavProps {}
+
+const StyledNav = styled.nav`
+  ul {
+    background: var(--secondary-color);
+    font-family: var(--default-font);
+    font-size: var(--space-s);
+  }
+`;
 
 const items: MenuProps['items'] = [
   {
@@ -55,14 +64,14 @@ const Navbar: React.FC<NavProps> = ({}) => {
     console.log('menu item clicked');
   };
   return (
-    <nav>
+    <StyledNav>
       <Menu
         onClick={onClick}
         selectedKeys={[activeMenu]}
         mode="horizontal"
         items={items}
       />
-    </nav>
+    </StyledNav>
   );
 };
 

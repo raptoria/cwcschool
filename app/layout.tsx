@@ -1,4 +1,3 @@
-import StyledComponentsRegistry from '@/lib/registry';
 import '@/styles/globals.css';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
@@ -10,9 +9,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <title>Clearwater Chinese School</title>
       </head>
       <body>
-        <div>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-        </div>
+        <div>{children}</div>
       </body>
     </html>
   );

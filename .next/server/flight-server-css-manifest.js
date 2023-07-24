@@ -1,1 +1,0 @@
-self.__RSC_CSS_MANIFEST={"__entry_css__":{"/Users/raptoria/projects/cwcschool/app/page":["/Users/raptoria/projects/cwcschool/styles/globals.css"]},"/Users/raptoria/projects/cwcschool/app/layout.tsx":["/Users/raptoria/projects/cwcschool/styles/globals.css"]}

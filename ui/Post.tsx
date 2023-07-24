@@ -1,6 +1,6 @@
-"use client";
-import Image from "next/image";
-import styled from "styled-components";
+'use client';
+import Image from 'next/image';
+import { styled } from '@linaria/react';
 
 export const StyledHeader = styled.h3`
   color: var(--secondary-accent-color);
@@ -20,8 +20,8 @@ const Post = ({
   title,
   imageWidth,
   imageHeight,
-  imageSrc = "",
-  imageAlt = "",
+  imageSrc = '',
+  imageAlt = '',
   content,
 }: Props) => {
   return (
@@ -31,7 +31,7 @@ const Post = ({
         <Image
           src={imageSrc}
           unoptimized
-          alt={imageAlt || ""}
+          alt={imageAlt || ''}
           width={imageWidth}
           height={imageHeight}
         />

@@ -1,19 +1,17 @@
 :root {
     --primary-color: white;
-    --secondary-color: #1bcbff;
-    --tertiary-color: #55acee;
-    --quaternary-color: #333333;
+    --secondary-color: #f7f5e7;
     --neutral-color: black;
-    --accent-color: #ffe000;
-    --secondary-accent-color: rgb(93, 29, 135);
     --space-lg: 5rem;
     --space-md: 2rem;
     --space-sm: 1rem;
+    --default-font: "Source Sans Pro", Helvetica, sans-serif;
   }
 
   body {
     color: var(--neutral-color);
     margin: 0;
+    font-family: var(--default-font);
   }
 
   h1, h2, h3, h4, h5, h6 {

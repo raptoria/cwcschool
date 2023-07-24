@@ -1,9 +1,7 @@
-"use client";
+import { useEffect, useState } from 'react';
+import Navbar from './Navbar';
 
-import { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-
-const links = ["home", "about", "portfolio", "contact"];
+const links = ['home', 'about', 'portfolio', 'contact'];
 const getCurrentLink = (links: Array<string>) => {
   const bottomOfPage =
     document.documentElement.scrollHeight - window.innerHeight ==
@@ -11,7 +9,7 @@ const getCurrentLink = (links: Array<string>) => {
   let currentLink = null;
 
   if (bottomOfPage) {
-    currentLink = "contact";
+    currentLink = 'contact';
   } else {
     links.forEach((link) => {
       const elementTarget = document.getElementById(link);
@@ -26,7 +24,7 @@ const getCurrentLink = (links: Array<string>) => {
 
 const Header = () => {
   const [mode, setFixedHeader] = useState(false);
-  const [activeLink, setActiveLink] = useState("home");
+  const [activeLink, setActiveLink] = useState('home');
 
   const onClick = (item: string) => {
     setActiveLink(item);
@@ -47,9 +45,9 @@ const Header = () => {
         setFixedHeader(false);
       }
     };
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll);
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener('scroll', onScroll);
     };
   }, []);
   return (
