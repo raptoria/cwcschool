@@ -1,4 +1,16 @@
+import '@/styles/globals.css';
 import { Source_Sans_Pro, Bitter } from 'next/font/google';
+import Footer from '@/ui/Footer';
+import Header from '@/ui/Header';
+import Navbar from '@/ui/Navbar';
+import { styled } from '@linaria/react';
+
+const StyledMain = styled.main`
+  display: grid;
+  grid-auto-columns: 50rem;
+  justify-content: center;
+  margin: var(--space-md);
+`;
 
 const primaryFont = Source_Sans_Pro({
   subsets: ['latin'],
@@ -21,7 +33,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <title>Clearwater Chinese School</title>
       </head>
       <body className={`${primaryFont.variable} ${headerFont.variable}`}>
-        <div>{children}</div>
+        <div>
+          <Header />
+          <Navbar />
+          <StyledMain>{children}</StyledMain>
+          <Footer />
+        </div>
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { styled } from '@linaria/react';
+import { useRouter } from 'next/navigation';
 
 interface NavProps {}
 
@@ -12,6 +13,7 @@ const StyledNav = styled.nav`
     background: var(--tertiary-color);
     font-family: var(--default-font);
     justify-content: center;
+    font-size: 1rem;
   }
 `;
 
@@ -21,11 +23,11 @@ const items: MenuProps['items'] = [
     key: 'home',
   },
   {
-    label: 'Classes',
-    key: 'classes',
+    label: 'Activities',
+    key: 'activities',
   },
   {
-    label: 'Teachers',
+    label: 'Our Teachers',
     key: 'teachers',
   },
   {
@@ -58,15 +60,19 @@ const items: MenuProps['items'] = [
   },
 ];
 const Navbar: React.FC<NavProps> = ({}) => {
+  const router = useRouter();
   const [activeMenu, setActiveMenu] = useState('home');
 
-  const onClick: MenuProps['onClick'] = () => {
-    console.log('menu item clicked');
+  const onClick: MenuProps['onClick'] = (e) => {
+    const currentMenu = e.key === 'home' ? '/' : `/${e.key}`;
+    setActiveMenu(e.key);
+    router.push(currentMenu);
   };
   return (
     <StyledNav>
       <Menu
         onClick={onClick}
+        defaultSelectedKeys={['home']}
         selectedKeys={[activeMenu]}
         mode="horizontal"
         items={items}

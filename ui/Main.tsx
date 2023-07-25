@@ -1,14 +1,6 @@
 import React, { use } from 'react';
 import { getAllPosts } from '@/lib/api';
 import Post from './Post';
-import { styled } from '@linaria/react';
-
-const StyledMain = styled.main`
-  display: grid;
-  grid-auto-columns: 50rem;
-  justify-content: center;
-  margin: var(--space-md);
-`;
 
 function Main() {
   const allPosts = use(
@@ -24,7 +16,7 @@ function Main() {
   );
 
   return (
-    <StyledMain>
+    <>
       {allPosts
         .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
         .map(
@@ -53,7 +45,7 @@ function Main() {
             />
           )
         )}
-    </StyledMain>
+    </>
   );
 }
 
