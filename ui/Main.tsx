@@ -1,17 +1,18 @@
 import React, { use } from 'react';
-import { getAllPosts } from '@/lib/api';
+import { getAllFiles } from '@/lib/api';
 import Post from './Post';
 
 function Main() {
   const allPosts = use(
-    getAllPosts([
+    getAllFiles([
       'title',
-      'date',
-      'slug',
-      'author',
-      'coverImage',
-      'excerpt',
+      'imageSrc',
+      'imageAlt',
+      'imageWidth',
+      'imageHeight',
       'content',
+      'author',
+      'date',
     ])
   );
 
@@ -22,7 +23,6 @@ function Main() {
         .map(
           ({
             title,
-            postType,
             imageSrc,
             imageAlt,
             imageWidth,
@@ -35,7 +35,6 @@ function Main() {
               key={title}
               title={title}
               content={content}
-              postType={postType}
               imageSrc={imageSrc}
               imageAlt={imageAlt}
               author={author}

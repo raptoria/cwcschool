@@ -17,7 +17,6 @@ const StyledMetadata = styled.div`
 
 type Props = {
   title: string;
-  postType: string;
   imageWidth: number;
   imageHeight: number;
   imageSrc: string;
