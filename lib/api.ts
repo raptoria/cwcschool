@@ -2,23 +2,25 @@ import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 
-const postsDirectory = join(process.cwd(), 'posts');
-
-type Items = {
+type FileContent = {
   [key: string]: string;
 };
 
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+export function getFileSlugs(fileDir: string) {
+  return fs.readdirSync(fileDir);
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []) {
+export function getFileBySlug(
+  fileDir: string,
+  slug: string,
+  fields: string[] = []
+) {
   const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { content, data } = matter(fileContents);
+  const fullPath = join(fileDir, `${realSlug}.md`);
+  const fileFileContents = fs.readFileSync(fullPath, 'utf8');
+  const { content, data } = matter(fileFileContents);
 
-  let strippedData: Items = {};
+  let strippedData: FileContent = {};
 
   for (const [key, value] of Object.entries(data)) {
     if (fields.includes(key)) {
@@ -26,13 +28,17 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     }
   }
 
-  const items: Items = { content, ...strippedData };
-  return items;
+  const fileContent: FileContent = { content, ...strippedData };
+  return fileContent;
 }
 
-export async function getAllFiles(fields: string[] = []): Promise<Items[]> {
-  const slugs = getPostSlugs();
-  const posts = slugs.map((slug) => getPostBySlug(slug, fields));
+export async function getAllFiles(
+  dirName: string,
+  fields: string[] = []
+): Promise<FileContent[]> {
+  const fileDir = join(process.cwd(), dirName);
+  const slugs = getFileSlugs(fileDir);
+  const files = slugs.map((slug) => getFileBySlug(fileDir, slug, fields));
 
-  return posts;
+  return files;
 }

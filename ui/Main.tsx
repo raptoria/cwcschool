@@ -4,7 +4,7 @@ import Post from './Post';
 
 function Main() {
   const allPosts = use(
-    getAllFiles([
+    getAllFiles('posts', [
       'title',
       'imageSrc',
       'imageAlt',
