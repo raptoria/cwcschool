@@ -2,7 +2,7 @@ import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 
-type FileContent = {
+export type FileContent = {
   [key: string]: string;
 };
 
@@ -39,6 +39,5 @@ export async function getAllFiles(
   const fileDir = join(process.cwd(), dirName);
   const slugs = getFileSlugs(fileDir);
   const files = slugs.map((slug) => getFileBySlug(fileDir, slug, fields));
-
   return files;
 }

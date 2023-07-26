@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import { use } from 'react';
 import { getAllFiles } from '@/lib/api';
 import Post from './Post';
 

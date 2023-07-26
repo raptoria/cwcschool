@@ -1,12 +1,13 @@
 'use client';
-
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { styled } from '@linaria/react';
 import { useRouter } from 'next/navigation';
 
-interface NavProps {}
+interface NavProps {
+  links: Array<string>;
+}
 
 const StyledNav = styled.nav`
   ul {
@@ -17,55 +18,29 @@ const StyledNav = styled.nav`
   }
 `;
 
-const items: MenuProps['items'] = [
-  {
-    label: 'Home',
-    key: 'home',
-  },
-  {
-    label: 'Activities',
-    key: 'activities',
-  },
-  {
-    label: 'Our Teachers',
-    key: 'teachers',
-  },
-  {
-    label: 'Events',
-    key: 'events',
-  },
-  {
-    label: 'Gallery',
-    key: 'gallery',
-  },
-  {
-    label: 'About us',
-    key: 'about',
-  },
-  {
-    label: 'Volunteer',
-    key: 'volunteer',
-  },
-  {
-    label: 'Donate',
-    key: 'donate',
-  },
-  {
-    label: 'Contact',
-    key: 'contact',
-  },
-  {
-    label: 'Lease',
-    key: 'lease',
-  },
-];
-const Navbar: React.FC<NavProps> = ({}) => {
+const Navbar: React.FC<NavProps> = ({ links }) => {
   const router = useRouter();
   const [activeMenu, setActiveMenu] = useState('home');
+
+  const getLinks = useMemo(() => {
+    const readableLinks = links.map((link) => ({
+      label: link.replace('.md', ''),
+      key: link,
+    }));
+    const menuItems: MenuProps['items'] = [
+      {
+        label: 'Home',
+        key: 'home',
+      },
+      ...readableLinks,
+    ];
+    return menuItems;
+  }, [links]);
 
   const onClick: MenuProps['onClick'] = (e) => {
     const currentMenu = e.key === 'home' ? '/' : `/${e.key}`;
     setActiveMenu(e.key);
+    console.log('currentMenu is', currentMenu);
     router.push(currentMenu);
   };
   return (
@@ -75,7 +50,7 @@ const Navbar: React.FC<NavProps> = ({}) => {
         defaultSelectedKeys={['home']}
         selectedKeys={[activeMenu]}
         mode="horizontal"
-        items={items}
+        items={getLinks}
       />
     </StyledNav>
   );

@@ -15,7 +15,7 @@ const StyledMetadata = styled.div`
   }
 `;
 
-type Props = {
+interface Props {
   title: string;
   imageWidth: number;
   imageHeight: number;
@@ -24,7 +24,7 @@ type Props = {
   content: any;
   date: string;
   author: string;
-};
+}
 
 const Post = ({
   title,

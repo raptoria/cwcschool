@@ -4,6 +4,7 @@ import Footer from '@/ui/Footer';
 import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
 import { styled } from '@linaria/react';
+import { getFileSlugs } from '@/lib/api';
 
 const StyledMain = styled.main`
   display: grid;
@@ -25,6 +26,8 @@ const headerFont = Bitter({
 });
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
+  const navigationLinks = getFileSlugs('page-content');
+
   return (
     <html>
       <head>
@@ -35,7 +38,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body className={`${primaryFont.variable} ${headerFont.variable}`}>
         <div>
           <Header />
-          <Navbar />
+          <Navbar links={navigationLinks} />
           <StyledMain>{children}</StyledMain>
           <Footer />
         </div>
