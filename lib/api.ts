@@ -17,8 +17,8 @@ export function getFileBySlug(
 ) {
   const realSlug = slug.replace(/\.md$/, '');
   const fullPath = join(fileDir, `${realSlug}.md`);
-  const fileFileContents = fs.readFileSync(fullPath, 'utf8');
-  const { content, data } = matter(fileFileContents);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { content, data } = matter(fileContents);
 
   let strippedData: FileContent = {};
 
