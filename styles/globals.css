@@ -43,3 +43,16 @@
     text-decoration: underline;
   }
 
+  .gallery {
+    display: grid; 
+    grid-template-columns: repeat(2, max-content); 
+    grid-gap: 1rem;
+  }
+
+  @media all and (max-width: 768px) {
+    .gallery {
+      grid-template-columns: auto;
+      justify-content: center;
+    }
+  }
+

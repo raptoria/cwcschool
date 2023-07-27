@@ -11,6 +11,10 @@ const StyledMain = styled.main`
   grid-auto-columns: 50rem;
   justify-content: center;
   margin: var(--space-md);
+
+  @media only screen and (max-width: 960px) {
+    grid-auto-columns: auto;
+  }
 `;
 
 const primaryFont = Source_Sans_Pro({
