@@ -23,10 +23,14 @@ const Navbar: React.FC<NavProps> = ({ links }) => {
   const [activeMenu, setActiveMenu] = useState('home');
 
   const getLinks = useMemo(() => {
-    const readableLinks = links.map((link) => ({
-      label: link.replace('.md', ''),
-      key: link,
-    }));
+    const readableLinks = links.map((link) => {
+      const linkRoute = link.replace('.md', '');
+      return {
+        label: linkRoute.charAt(0).toUpperCase() + linkRoute.slice(1),
+        key: linkRoute,
+      };
+    });
+
     const menuItems: MenuProps['items'] = [
       {
         label: 'Home',
@@ -40,7 +44,7 @@ const Navbar: React.FC<NavProps> = ({ links }) => {
   const onClick: MenuProps['onClick'] = (e) => {
     const currentMenu = e.key === 'home' ? '/' : `/${e.key}`;
     setActiveMenu(e.key);
-    console.log('currentMenu is', currentMenu);
+
     router.push(currentMenu);
   };
   return (

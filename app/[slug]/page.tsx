@@ -1,7 +1,7 @@
 import PageContent from '@/ui/PageContent';
 
-const Page = ({ params }: any) => {
-  return <PageContent slug={params.slug} />;
+const Page = ({ params: { slug = '/' } }) => {
+  return <PageContent slug={slug} />;
 };
 
 export default Page;
