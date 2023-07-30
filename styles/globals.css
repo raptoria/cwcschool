@@ -49,10 +49,18 @@
     grid-gap: 1rem;
   }
 
+  .gallery img.alignRight {
+    margin-left: 4rem;
+  }
+
   @media all and (max-width: 768px) {
     .gallery {
       grid-template-columns: auto;
       justify-content: center;
+    }
+
+    .gallery img.alignRight {
+      margin: 0;
     }
   }
 
