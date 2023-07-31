@@ -24,7 +24,7 @@ const Navbar: React.FC<NavProps> = ({ links }) => {
 
   const getLinks = useMemo(() => {
     const readableLinks = links.map((link) => {
-      const linkRoute = link.replace('.md', '');
+      const linkRoute = link.replace(/^[^\-]+-(?<title>.+)\.md$/, '$<title>');
       return {
         label: linkRoute.charAt(0).toUpperCase() + linkRoute.slice(1),
         key: linkRoute,
