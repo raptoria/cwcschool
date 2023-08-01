@@ -1,16 +1,18 @@
-import { FileContent, getFileBySlug } from '@/lib/api';
+import { FileContent, getFileByRoute } from '@/lib/api';
 
 interface Props {
   slug: string;
 }
 
 const PageContent = ({ slug }: Props) => {
-  const fileContent: FileContent = getFileBySlug('page-content', slug, [
+  const fileContent: FileContent | null = getFileByRoute('page-content', slug, [
     'content',
   ]);
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: fileContent?.content }} />
+      {fileContent && (
+        <div dangerouslySetInnerHTML={{ __html: fileContent?.content }} />
+      )}
       <p />
     </>
   );

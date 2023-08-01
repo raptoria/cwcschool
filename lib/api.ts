@@ -6,6 +6,26 @@ export type FileContent = {
   [key: string]: string;
 };
 
+export const getFileByRoute = (
+  fileDir: string,
+  slug: string,
+  fields: string[] = []
+) => {
+  const matchedFiles = [];
+
+  const files = getFileSlugs(fileDir);
+  for (const file of files) {
+    if (file.includes(slug)) {
+      matchedFiles.push(file);
+    }
+  }
+  if (matchedFiles.length === 1) {
+    return getFileBySlug(fileDir, matchedFiles[0], fields);
+  } else {
+    return null;
+  }
+};
+
 export function getFileSlugs(fileDir: string) {
   return fs.readdirSync(fileDir);
 }

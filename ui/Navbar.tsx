@@ -4,6 +4,7 @@ import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { styled } from '@linaria/react';
 import { useRouter } from 'next/navigation';
+import { MenuInfo } from 'rc-menu/lib/interface';
 
 interface NavProps {
   links: Array<string>;
@@ -41,10 +42,9 @@ const Navbar: React.FC<NavProps> = ({ links }) => {
     return menuItems;
   }, [links]);
 
-  const onClick: MenuProps['onClick'] = (e) => {
+  const onClick: MenuProps['onClick'] = (e: MenuInfo) => {
     const currentMenu = e.key === 'home' ? '/' : `/${e.key}`;
     setActiveMenu(e.key);
-
     router.push(currentMenu);
   };
   return (
