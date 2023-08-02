@@ -1,8 +1,9 @@
 :root {
     --primary-color: #ed0e05;
-    --secondary-color: #fe9236;
+    --secondary-color: #d2670a;
     --tertiary-color:#f7f5e7;
     --neutral-color: black;
+    --accent-color: #7b4211;
     --space-lg: 5rem;
     --space-md: 2rem;
     --space-sm: 1rem;

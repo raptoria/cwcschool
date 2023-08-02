@@ -1,13 +1,12 @@
 import { styled } from '@linaria/react';
 import moment from 'moment';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export interface IFooter {
   name: string;
   address: string;
   phone: string;
-  facebook: string;
+  blurb: string;
   content: string;
 }
 
@@ -21,6 +20,19 @@ const StyledFooter = styled.footer`
   padding: var(--space-lg);
   background: var(--tertiary-color);
   color: var(--neutral-color);
+
+  .address {
+    color: var(--primary-color);
+  }
+
+  .phone {
+    color: var(--secondary-color);
+    font-style: italic;
+  }
+
+  .blurb {
+    color: var(--accent-color);
+  }
 
   @media all and (max-width: 768px) {
     grid-template-columns: 300px;
@@ -37,7 +49,7 @@ const Footer: React.FC<IFooter> = ({
   name,
   address,
   phone,
-  facebook,
+  blurb,
   content,
 }) => {
   return (
@@ -50,21 +62,17 @@ const Footer: React.FC<IFooter> = ({
           height={117}
         />
         <div className="address">{address}</div>
-        <div className="phone">{phone}</div>
+        <div className="phone">Phone: {phone}</div>
       </div>
-      <div>
-        <p>{content}</p>
+      <div className="blurb">
+        <p>{blurb}</p>
 
         <span className="disclaimer">
           © {moment().year()} {name}
         </span>
       </div>
-      <div className="socialIcons">
-        {facebook && (
-          <a href={facebook} target="_blank" rel="noreferrer">
-            Visit us on Facebook!
-          </a>
-        )}
+      <div className="links">
+        {content && <div dangerouslySetInnerHTML={{ __html: content }} />}
       </div>
     </StyledFooter>
   );

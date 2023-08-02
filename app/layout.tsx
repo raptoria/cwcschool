@@ -36,11 +36,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     'name',
     'address',
     'phone',
-    'facebook',
+    'blurb',
     'content',
   ]);
 
-  const { name, address, phone, facebook, content } = info;
+  const { name, address, phone, blurb, content } = info;
 
   return (
     <html>
@@ -58,7 +58,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             name={name}
             address={address}
             phone={phone}
-            facebook={facebook}
+            blurb={blurb}
             content={content}
           />
         </div>
