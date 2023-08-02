@@ -5,6 +5,7 @@ import { Menu } from 'antd';
 import { styled } from '@linaria/react';
 import { useRouter } from 'next/navigation';
 import { MenuInfo } from 'rc-menu/lib/interface';
+import { ConfigProvider } from 'antd';
 
 interface NavProps {
   links: Array<string>;
@@ -12,7 +13,6 @@ interface NavProps {
 
 const StyledNav = styled.nav`
   ul {
-    background: var(--tertiary-color);
     font-family: var(--default-font);
     justify-content: center;
     font-size: 1rem;
@@ -47,15 +47,27 @@ const Navbar: React.FC<NavProps> = ({ links }) => {
     setActiveMenu(e.key);
     router.push(currentMenu);
   };
+
   return (
     <StyledNav>
-      <Menu
-        onClick={onClick}
-        defaultSelectedKeys={['home']}
-        selectedKeys={[activeMenu]}
-        mode="horizontal"
-        items={getLinks}
-      />
+      <ConfigProvider
+        theme={{
+          components: {
+            Menu: {
+              colorPrimary: '#ed0e05', //antd doesn't support css variables
+              itemBg: '#f7f5e7',
+            },
+          },
+        }}
+      >
+        <Menu
+          onClick={onClick}
+          defaultSelectedKeys={['home']}
+          selectedKeys={[activeMenu]}
+          mode="horizontal"
+          items={getLinks}
+        />
+      </ConfigProvider>
     </StyledNav>
   );
 };
