@@ -20,6 +20,12 @@ const StyledFooter = styled.footer`
   padding: var(--space-lg);
   background: var(--tertiary-color);
   color: var(--neutral-color);
+  font-size: 1rem;
+
+  ul li {
+    list-style: none;
+    margin: var(--space-sm);
+  }
 
   .address {
     color: var(--primary-color);

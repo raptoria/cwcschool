@@ -6,7 +6,14 @@ blurb: The Clearwater Chinese School (founded 1990) provides am ongoing once a w
 ---
 
 <p>
+<ul>
+<li>
     <a href="https://www.facebook.com/p/Clearwater-Chinese-School-100068152035034/ target="_blank" rel="noreferrer">
-        Visit us on Facebook!
+        Visit us on Facebook
     </a>
+</li>
+<li>    
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclickhosted_button_id=LMPVC5A5AK9KU&source=url">Donate using Paypal</a>
+</li>
+</ul>
 </p>
