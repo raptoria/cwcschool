@@ -1,6 +1,10 @@
 import { styled } from '@linaria/react';
 
-interface HeaderProps {}
+interface HeaderProps {
+  name: string;
+  address: string;
+  phone: string;
+}
 
 const StyledHeader = styled.header`
   background: url(/assets/images/headerbg.png) no-repeat scroll top;
@@ -24,16 +28,16 @@ const StyledHeader = styled.header`
   }
 `;
 
-const Header: React.FC<HeaderProps> = () => {
+const Header: React.FC<HeaderProps> = ({ name, address, phone }) => {
   return (
     <StyledHeader>
       <h1>
         <a href="/" title="Clearwater Chinese School">
-          Clearwater Chinese School
+          {name}
         </a>
       </h1>
       <h3>
-        4600 78th Ave., N., Pinellas Park, Florida, 33781 ~ (727) 544-5748
+        {address} ~ {phone}
       </h3>
     </StyledHeader>
   );

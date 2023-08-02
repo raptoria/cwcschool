@@ -1,13 +1,16 @@
 import { FileContent, getFileByRoute } from '@/lib/api';
+import { Directory } from 'shared/types';
 
 interface Props {
   slug: string;
 }
 
 const PageContent = ({ slug }: Props) => {
-  const fileContent: FileContent | null = getFileByRoute('page-content', slug, [
-    'content',
-  ]);
+  const fileContent: FileContent | null = getFileByRoute(
+    Directory.pages,
+    slug,
+    ['content']
+  );
   return (
     <>
       {fileContent && (

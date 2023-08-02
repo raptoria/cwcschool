@@ -54,7 +54,7 @@ const Navbar: React.FC<NavProps> = ({ links }) => {
         theme={{
           components: {
             Menu: {
-              colorPrimary: '#ed0e05', //antd doesn't support css variables
+              colorPrimary: '#ed0e05', //antd doesn't support css variables yet
               itemBg: '#f7f5e7',
             },
           },

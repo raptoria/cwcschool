@@ -4,7 +4,8 @@ import Footer from '@/ui/Footer';
 import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
 import { styled } from '@linaria/react';
-import { getFileSlugs } from '@/lib/api';
+import { getFileSlugs, getFileBySlug } from '@/lib/api';
+import { Directory } from 'shared/types';
 
 const StyledMain = styled.main`
   display: grid;
@@ -30,7 +31,16 @@ const headerFont = Bitter({
 });
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
-  const navigationLinks = getFileSlugs('page-content');
+  const navigationLinks = getFileSlugs(Directory.pages);
+  const info = getFileBySlug(Directory.pageContent, 'info', [
+    'name',
+    'address',
+    'phone',
+    'facebook',
+    'content',
+  ]);
+
+  const { name, address, phone, facebook, content } = info;
 
   return (
     <html>
@@ -41,10 +51,16 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       </head>
       <body className={`${primaryFont.variable} ${headerFont.variable}`}>
         <div>
-          <Header />
+          <Header name={name} address={address} phone={phone} />
           <Navbar links={navigationLinks} />
           <StyledMain>{children}</StyledMain>
-          <Footer />
+          <Footer
+            name={name}
+            address={address}
+            phone={phone}
+            facebook={facebook}
+            content={content}
+          />
         </div>
       </body>
     </html>

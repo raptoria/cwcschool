@@ -1,10 +1,11 @@
 import { use } from 'react';
 import { getAllFiles } from '@/lib/api';
 import Post from './Post';
+import { Directory } from 'shared/types';
 
 function Main() {
   const allPosts = use(
-    getAllFiles('posts', [
+    getAllFiles(Directory.posts, [
       'title',
       'imageSrc',
       'imageAlt',
