@@ -1,5 +1,5 @@
 export enum Directory {
-  pageContent = 'page-content',
+  pageContent = 'public/page-content',
   posts = 'posts',
   pageShared = 'page-shared',
 }
