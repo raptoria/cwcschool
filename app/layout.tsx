@@ -4,7 +4,7 @@ import Footer from '@/ui/Footer';
 import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
 import { styled } from '@linaria/react';
-import { getFileSlugs, getFileBySlug } from '@/lib/api';
+import { getFileSlugs, getFileBySlug } from 'api/files';
 import { Directory } from 'shared/types';
 
 const StyledMain = styled.main`

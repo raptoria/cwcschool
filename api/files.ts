@@ -1,4 +1,3 @@
-// import fs from 'fs';
 import { promises as fs } from 'fs';
 import path, { join } from 'path';
 import matter from 'gray-matter';
@@ -13,7 +12,7 @@ export const getFileByRoute = async (
   fields: string[] = []
 ) => {
   const matchedFiles = [];
-  const resolvedPath = path.resolve(process.cwd(), fileDir);
+  const resolvedPath = path.join(process.cwd(), fileDir);
   const files = await getFileSlugs(resolvedPath);
   for (const file of files) {
     if (file.includes(slug)) {

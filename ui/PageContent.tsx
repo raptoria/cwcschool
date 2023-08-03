@@ -1,4 +1,4 @@
-import { FileContent, getFileByRoute } from '@/lib/api';
+import { FileContent, getFileByRoute } from 'api/files';
 import { Directory } from 'shared/types';
 
 interface Props {
