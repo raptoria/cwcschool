@@ -5,8 +5,8 @@ interface Props {
   slug: string;
 }
 
-const PageContent = ({ slug }: Props) => {
-  const fileContent: FileContent | null = getFileByRoute(
+const PageContent = async ({ slug }: Props) => {
+  const fileContent: FileContent | null = await getFileByRoute(
     Directory.pageContent,
     slug,
     ['content']

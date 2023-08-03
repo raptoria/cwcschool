@@ -6,6 +6,7 @@ import { styled } from '@linaria/react';
 import { useRouter } from 'next/navigation';
 import { MenuInfo } from 'rc-menu/lib/interface';
 import { ConfigProvider } from 'antd';
+import ReactGA from 'react-ga4';
 
 interface NavProps {
   links: Array<string>;
@@ -24,6 +25,9 @@ const Navbar: React.FC<NavProps> = ({ links }) => {
   const [activeMenu, setActiveMenu] = useState('home');
 
   const getLinks = useMemo(() => {
+    const G4tag = process.env.NEXT_PUBLIC_G4TAG;
+    ReactGA.initialize(G4tag as string);
+
     const readableLinks = links.map((link) => {
       const linkRoute = link.replace(/^[^\-]+-(?<title>.+)\.md$/, '$<title>');
       return {

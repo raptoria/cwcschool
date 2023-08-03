@@ -1,7 +1,12 @@
 import PageContent from '@/ui/PageContent';
 
 const Page = ({ params: { slug = '/' } }) => {
-  return <PageContent slug={slug} />;
+  return (
+    <>
+      {/* @ts-expect-error Server Component */}
+      <PageContent slug={slug} />
+    </>
+  );
 };
 
 export default Page;

@@ -6,7 +6,6 @@ import Navbar from '@/ui/Navbar';
 import { styled } from '@linaria/react';
 import { getFileSlugs, getFileBySlug } from '@/lib/api';
 import { Directory } from 'shared/types';
-import ReactGA from 'react-ga4';
 
 const StyledMain = styled.main`
   display: grid;
@@ -31,12 +30,9 @@ const headerFont = Bitter({
   variable: '--header-font',
 });
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
-  const G4tag = process.env.G4TAG;
-  ReactGA.initialize(G4tag as string);
-
-  const navigationLinks = getFileSlugs(Directory.pageContent);
-  const info = getFileBySlug(Directory.pageShared, 'info', [
+const RootLayout = async ({ children }: { children: React.ReactNode }) => {
+  const navigationLinks = await getFileSlugs(Directory.pageContent);
+  const info = await getFileBySlug(Directory.pageShared, 'info', [
     'name',
     'address',
     'phone',

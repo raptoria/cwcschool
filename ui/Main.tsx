@@ -1,21 +1,19 @@
 import { use } from 'react';
-import { getAllFiles } from '@/lib/api';
+import { FileContent, getAllFiles } from '@/lib/api';
 import Post from './Post';
 import { Directory } from 'shared/types';
 
-function Main() {
-  const allPosts = use(
-    getAllFiles(Directory.posts, [
-      'title',
-      'imageSrc',
-      'imageAlt',
-      'imageWidth',
-      'imageHeight',
-      'content',
-      'author',
-      'date',
-    ])
-  );
+export default async function Main() {
+  const allPosts = await getAllFiles(Directory.posts, [
+    'title',
+    'imageSrc',
+    'imageAlt',
+    'imageWidth',
+    'imageHeight',
+    'content',
+    'author',
+    'date',
+  ]);
 
   return (
     <>
@@ -48,5 +46,3 @@ function Main() {
     </>
   );
 }
-
-export default Main;
