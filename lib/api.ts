@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { join } from 'path';
+import path, { join } from 'path';
 import matter from 'gray-matter';
 
 export type FileContent = {
@@ -27,7 +27,8 @@ export const getFileByRoute = (
 };
 
 export function getFileSlugs(fileDir: string) {
-  return fs.readdirSync(fileDir);
+  const resolvedPath = path.resolve(process.cwd(), fileDir);
+  return fs.readdirSync(resolvedPath);
 }
 
 export function getFileBySlug(
