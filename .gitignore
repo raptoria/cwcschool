@@ -40,3 +40,4 @@ next-env.d.ts
 styles/dist.css
 
 .next
+.DS_Store
