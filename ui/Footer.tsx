@@ -8,6 +8,7 @@ export interface IFooter {
   phone: string;
   blurb: string;
   content: string;
+  email: string;
 }
 
 const StyledFooter = styled.footer`
@@ -36,7 +37,7 @@ const StyledFooter = styled.footer`
     color: var(--primary-color);
   }
 
-  .phone {
+  .phone, .email {
     color: var(--secondary-color);
     font-style: italic;
   }
@@ -70,6 +71,7 @@ const Footer: React.FC<IFooter> = ({
   phone,
   blurb,
   content,
+  email,
 }) => {
   return (
     <StyledFooter>
@@ -82,6 +84,9 @@ const Footer: React.FC<IFooter> = ({
         />
         <div className="address">{address}</div>
         <div className="phone">Phone: {phone}</div>
+        <div className="email">
+          E-mail: <a href={`mailto:${email}`}>{email}</a>
+        </div>
       </div>
       <div className="blurb">
         <p>{blurb}</p>

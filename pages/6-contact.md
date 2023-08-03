@@ -7,5 +7,5 @@
 4600 78th Ave., N., Pinellas Park, Florida, 33781</a>
 </div>
 Phone: (727) 544-5748<br>
-E-mail: cwcschool@gmail.com</p>
+E-mail: <a href="mailto: cwcschool@gmail.com">cwcschool@gmail.com</a></p>
 <p><a href="https://www.facebook.com/pages/Clearwater-Chinese-School/73324691057">Our Facebook page</a></p>
