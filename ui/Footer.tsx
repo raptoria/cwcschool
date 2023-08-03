@@ -22,6 +22,11 @@ const StyledFooter = styled.footer`
   color: var(--neutral-color);
   font-size: 1rem;
 
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
   ul li {
     list-style: none;
     margin: var(--space-sm);
@@ -40,11 +45,19 @@ const StyledFooter = styled.footer`
     color: var(--accent-color);
   }
 
+  .links {
+    width: 100%;
+  }
+
   @media all and (max-width: 768px) {
-    grid-template-columns: 300px;
+    grid-template-columns: 20rem;
     justify-content: center;
     grid-gap: var(--space-md);
-  }
+
+    ul li {
+      margin:  var(--space-x-sm) 0;
+    }
+
 
   @media only screen and (max-width: 1200px) {
     padding: var(--space-lg);
@@ -77,9 +90,10 @@ const Footer: React.FC<IFooter> = ({
           © {moment().year()} {name}
         </span>
       </div>
-      <div className="links">
-        {content && <div dangerouslySetInnerHTML={{ __html: content }} />}
-      </div>
+
+      {content && (
+        <div className="links" dangerouslySetInnerHTML={{ __html: content }} />
+      )}
     </StyledFooter>
   );
 };
