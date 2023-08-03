@@ -7,7 +7,7 @@ interface Props {
 
 const PageContent = ({ slug }: Props) => {
   const fileContent: FileContent | null = getFileByRoute(
-    Directory.pages,
+    Directory.pageContent,
     slug,
     ['content']
   );

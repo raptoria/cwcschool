@@ -35,8 +35,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const G4tag = process.env.G4TAG;
   ReactGA.initialize(G4tag as string);
 
-  const navigationLinks = getFileSlugs(Directory.pages);
-  const info = getFileBySlug(Directory.pageContent, 'info', [
+  const navigationLinks = getFileSlugs(Directory.pageContent);
+  const info = getFileBySlug(Directory.pageShared, 'info', [
     'name',
     'address',
     'phone',
