@@ -1,5 +1,5 @@
 import { use } from 'react';
-import { FileContent, getAllFiles } from 'app/api/files';
+import { FileContent, getAllFiles } from 'app/api';
 import Post from './Post';
 import { Directory } from 'shared/types';
 
