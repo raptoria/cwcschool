@@ -12,8 +12,9 @@ export const getFileByRoute = async (
   fields: string[] = []
 ) => {
   const matchedFiles = [];
-  const resolvedPath = path.join(process.cwd(), fileDir);
-  const files = await getFileSlugs(resolvedPath);
+  const cwdPath = path.join(process.cwd(), fileDir);
+  const files = await getFileSlugs(cwdPath);
+
   for (const file of files) {
     if (file.includes(slug)) {
       matchedFiles.push(file);
@@ -37,10 +38,9 @@ export const getFileBySlug = async (
   fields: string[] = []
 ) => {
   const realSlug = slug.replace(/\.md$/, '');
-  const resolvedPath = path.join(process.cwd(), fileDir, `${realSlug}.md`);
+  const cwdPath = path.join(process.cwd(), fileDir, `${realSlug}.md`);
 
-  const fileContents = await fs.readFile(resolvedPath, 'utf8');
-
+  const fileContents = await fs.readFile(cwdPath, 'utf8');
   const { content, data } = matter(fileContents);
 
   let strippedData: FileContent = {};
@@ -55,10 +55,8 @@ export const getFileBySlug = async (
   return fileContent;
 };
 
-export const getAllFiles = async (dirName: string, fields: string[] = []) => {
-  const fileDir = join(process.cwd(), dirName);
+export const getAllFiles = async (fileDir: string, fields: string[] = []) => {
   const slugs = await getFileSlugs(fileDir);
-
   const files = slugs.map(async (slug) => {
     const fileContent = await getFileBySlug(fileDir, slug, fields);
     return fileContent;

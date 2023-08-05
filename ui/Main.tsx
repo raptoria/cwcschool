@@ -4,17 +4,16 @@ import Post from './Post';
 import { Directory } from 'shared/types';
 
 export default async function Main() {
-  const allPosts = [] as FileContent[];
-  // const allPosts = await getAllFiles(Directory.posts, [
-  //   'title',
-  //   'imageSrc',
-  //   'imageAlt',
-  //   'imageWidth',
-  //   'imageHeight',
-  //   'content',
-  //   'author',
-  //   'date',
-  // ]);
+  const allPosts = await getAllFiles(Directory.posts, [
+    'title',
+    'imageSrc',
+    'imageAlt',
+    'imageWidth',
+    'imageHeight',
+    'content',
+    'author',
+    'date',
+  ]);
 
   return (
     <>
