@@ -5,9 +5,9 @@ const withLinaria = require('next-with-linaria');
 const config = {
   output: 'standalone',
   experimental: {
-    outputFileTracingIncludes: {
-      '/api/files': ['./page-content/**/*'],
-    },
+    // outputFileTracingIncludes: {
+    //   '/api/files': ['./page-content/**/*'],
+    // },
     appDir: true,
   },
 };
