@@ -31,8 +31,22 @@ const headerFont = Bitter({
   variable: '--header-font',
 });
 
+export async function generateStaticParams() {
+  const links = await getNavigationLinks();
+  console.log(links);
+  const params = links.map((link) => ({
+    slug: link.replace(/^[^\-]+-(?<title>.+)\.md$/, '$<title>'),
+  }));
+  console.log(params);
+  return params;
+}
+
+const getNavigationLinks = async () => {
+  const links = await getFileSlugs(Directory.pageContent);
+  return links;
+};
+
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
-  const navigationLinks = await getFileSlugs(Directory.pageContent);
   const info = await getFileBySlug(Directory.pageShared, 'info', [
     'name',
     'address',
@@ -43,6 +57,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   ]);
 
   const { name, address, phone, email, blurb, content } = info;
+  const links = await getNavigationLinks();
 
   return (
     <html>
@@ -54,7 +69,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
       <body className={`${primaryFont.variable} ${headerFont.variable}`}>
         <div>
           <Header name={name} address={address} phone={phone} />
-          <Navbar links={navigationLinks} />
+          <Navbar links={links} />
           <StyledMain>{children}</StyledMain>
           <Footer
             name={name}
