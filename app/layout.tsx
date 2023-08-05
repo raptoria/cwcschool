@@ -5,7 +5,7 @@ import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
 import { styled } from '@linaria/react';
 
-import { getFileBySlug, getFileSlugs } from 'app/api/files/getFiles';
+import { getFileBySlug, getFileSlugs } from 'shared/getFiles';
 import { Directory } from 'shared/types';
 
 const StyledMain = styled.main`

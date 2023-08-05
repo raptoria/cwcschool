@@ -1,19 +1,16 @@
-import { FileContent } from 'app/api/files/getFiles';
-import { getBaseUrl } from 'shared/getBaseUrl';
+import { Directory } from 'shared/types';
+import { FileContent, getFileByRoute } from 'shared/getFiles';
 
 interface Props {
   slug: string;
 }
 
 const PageContent = async ({ slug }: Props) => {
-  const res = await fetch(`${getBaseUrl()}/api/files?slug=${slug}`);
-  console.log(res);
-  if (!res.ok) {
-    // Render the closest `error.js` Error Boundary
-    throw new Error('Something went wrong!');
-  }
-
-  const fileContent = (await res.json()) as FileContent;
+  const fileContent: FileContent | null = await getFileByRoute(
+    Directory.pageContent,
+    slug,
+    ['content']
+  );
 
   return (
     <>
