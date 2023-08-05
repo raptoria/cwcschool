@@ -8,6 +8,7 @@ import { MenuInfo } from 'rc-menu/lib/interface';
 import { ConfigProvider } from 'antd';
 import ReactGA from 'react-ga4';
 import { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import { usePathname } from 'next/navigation';
 
 interface NavProps {
   links: Array<MenuItemType>;
@@ -25,11 +26,17 @@ const G4tag = process.env.NEXT_PUBLIC_G4TAG;
 
 const Navbar: React.FC<NavProps> = ({ links }) => {
   const router = useRouter();
-  const [activeMenu, setActiveMenu] = useState('home');
+  const pathname = usePathname();
+  const [activeMenu, setActiveMenu] = useState('');
 
   useEffect(() => {
     ReactGA.initialize(G4tag as string);
   }, [G4tag]);
+
+  useEffect(() => {
+    const path = pathname === '/' ? 'home' : pathname.replace('/', '');
+    setActiveMenu(path);
+  }, [router]);
 
   const getLinks = useMemo(() => {
     const menuItems = [
@@ -62,7 +69,6 @@ const Navbar: React.FC<NavProps> = ({ links }) => {
       >
         <Menu
           onClick={onClick}
-          defaultSelectedKeys={['home']}
           selectedKeys={[activeMenu]}
           mode="horizontal"
           items={getLinks}

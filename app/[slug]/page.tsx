@@ -16,6 +16,7 @@ async function getPost(slug: string) {
 
 const Page = async ({ params: { slug = '/' } }) => {
   const post = await getPost(slug);
+
   return (
     <>
       {/* @ts-expect-error Server Component */}

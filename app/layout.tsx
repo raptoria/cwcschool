@@ -4,9 +4,9 @@ import Footer from '@/ui/Footer';
 import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
 import { styled } from '@linaria/react';
-
 import { getFileBySlug, getFileSlugs } from 'shared/getFiles';
 import { Directory } from 'shared/types';
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 
 const StyledMain = styled.main`
   display: grid;
