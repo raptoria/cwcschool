@@ -32,18 +32,23 @@ const headerFont = Bitter({
 });
 
 export async function generateStaticParams() {
-  const links = await getNavigationLinks();
-  console.log(links);
-  const params = links.map((link) => ({
-    slug: link.replace(/^[^\-]+-(?<title>.+)\.md$/, '$<title>'),
-  }));
-  console.log(params);
+  const params = await getNavigationLinks();
   return params;
 }
 
 const getNavigationLinks = async () => {
   const links = await getFileSlugs(Directory.pageContent);
-  return links;
+
+  const readableLinks = links.map((link) => {
+    const linkRoute = link.replace(/^[^\-]+-(?<title>.+)\.md$/, '$<title>');
+    return {
+      label: linkRoute.charAt(0).toUpperCase() + linkRoute.slice(1),
+      key: linkRoute,
+      slug: linkRoute,
+    };
+  });
+
+  return readableLinks;
 };
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {

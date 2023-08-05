@@ -1,5 +1,5 @@
 'use client';
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { styled } from '@linaria/react';
@@ -7,9 +7,10 @@ import { useRouter } from 'next/navigation';
 import { MenuInfo } from 'rc-menu/lib/interface';
 import { ConfigProvider } from 'antd';
 import ReactGA from 'react-ga4';
+import { MenuItemType } from 'antd/es/menu/hooks/useItems';
 
 interface NavProps {
-  links: Array<string>;
+  links: Array<MenuItemType>;
 }
 
 const StyledNav = styled.nav`
@@ -20,28 +21,23 @@ const StyledNav = styled.nav`
   }
 `;
 
+const G4tag = process.env.NEXT_PUBLIC_G4TAG;
+
 const Navbar: React.FC<NavProps> = ({ links }) => {
   const router = useRouter();
   const [activeMenu, setActiveMenu] = useState('home');
 
-  const getLinks = useMemo(() => {
-    const G4tag = process.env.NEXT_PUBLIC_G4TAG;
+  useEffect(() => {
     ReactGA.initialize(G4tag as string);
+  }, [G4tag]);
 
-    const readableLinks = links.map((link) => {
-      const linkRoute = link.replace(/^[^\-]+-(?<title>.+)\.md$/, '$<title>');
-      return {
-        label: linkRoute.charAt(0).toUpperCase() + linkRoute.slice(1),
-        key: linkRoute,
-      };
-    });
-
-    const menuItems: MenuProps['items'] = [
+  const getLinks = useMemo(() => {
+    const menuItems = [
       {
         label: 'Home',
         key: 'home',
       },
-      ...readableLinks,
+      ...links,
     ];
     return menuItems;
   }, [links]);
