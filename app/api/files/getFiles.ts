@@ -37,9 +37,9 @@ export const getFileBySlug = async (
   fields: string[] = []
 ) => {
   const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(fileDir, `${realSlug}.md`);
+  const resolvedPath = path.join(process.cwd(), fileDir, `${realSlug}.md`);
 
-  const fileContents = await fs.readFile(fullPath, 'utf8');
+  const fileContents = await fs.readFile(resolvedPath, 'utf8');
 
   const { content, data } = matter(fileContents);
 
