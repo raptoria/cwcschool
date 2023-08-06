@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useMemo, useState } from 'react';
-import { styled } from '@linaria/react';
 import { useRouter } from 'next/navigation';
 
 import ReactGA from 'react-ga4';

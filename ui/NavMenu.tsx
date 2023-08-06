@@ -12,6 +12,8 @@ const MenuContainer = styled.div<Partial<NavMenuProps>>`
     display: grid;
     justify-content: center;
     background: var(--tertiary-color);
+    font-family: var(--default-font);
+    font-size: 1rem;
   }
 
   ul {
@@ -23,26 +25,27 @@ const MenuContainer = styled.div<Partial<NavMenuProps>>`
     margin: var(--space-sm);
     position: relative;
 
-    .active:after {
-      position: absolute;
-      inset-inline: 0px;
-      bottom: calc(var(--space-sm) * -1);
-      border-bottom: 2px solid var(--primary-color);
-      transition: border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      content: '';
-    }
-
     a {
       color: var(--neutral-color);
-    }
 
-    a:hover {
-      text-decoration: none;
-      color: var(--primary-color);
-    }
+      :hover {
+        text-decoration: none;
+        color: var(--primary-color);
+      }
 
-    a.active {
-      color: var(--primary-color);
+      &.active:after {
+        position: absolute;
+        inset-inline: 0;
+        bottom: calc(var(--space-sm) * -1);
+        border-bottom: 2px solid;
+        border-color: var(--primary-color);
+        transition: border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        content: '';
+      }
+
+      &.active {
+        color: var(--primary-color);
+      }
     }
   }
 
@@ -74,10 +77,7 @@ export const NavMenu: React.FC<NavMenuProps> = ({ navLinks, activeLink }) => {
         <ul>
           {navLinks &&
             navLinks.map((link) => (
-              <li
-                key={link.key}
-                className={link.key === activeLink ? 'active' : ''}
-              >
+              <li key={link.key}>
                 <a
                   href={`/${link.key}`}
                   className={link.key === activeLink ? 'active' : ''}
