@@ -4,7 +4,6 @@ import Footer from '@/ui/Footer';
 import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
 import { styled } from '@linaria/react';
-import StyledComponentsRegistry from '@/lib/AntdRegistry';
 import { getFileBySlug, getFileSlugs } from '@/lib/getFiles';
 import { Directory } from '@/lib/types';
 
@@ -72,19 +71,17 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
         <title>Clearwater Chinese School</title>
       </head>
       <body className={`${primaryFont.variable} ${headerFont.variable}`}>
-        <StyledComponentsRegistry>
-          <Header name={name} address={address} phone={phone} />
-          <Navbar links={links} />
-          <StyledMain>{children}</StyledMain>
-          <Footer
-            name={name}
-            address={address}
-            phone={phone}
-            email={email}
-            blurb={blurb}
-            content={content}
-          />
-        </StyledComponentsRegistry>
+        <Header name={name} address={address} phone={phone} />
+        <Navbar links={links} />
+        <StyledMain>{children}</StyledMain>
+        <Footer
+          name={name}
+          address={address}
+          phone={phone}
+          email={email}
+          blurb={blurb}
+          content={content}
+        />
       </body>
     </html>
   );
