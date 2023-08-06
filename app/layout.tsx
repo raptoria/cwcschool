@@ -4,9 +4,9 @@ import Footer from '@/ui/Footer';
 import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
 import { styled } from '@linaria/react';
-import { getFileBySlug, getFileSlugs } from 'shared/getFiles';
-import { Directory } from 'shared/types';
-import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
+import StyledComponentsRegistry from '@/lib/AntdRegistry';
+import { getFileBySlug, getFileSlugs } from '@/lib/getFiles';
+import { Directory } from '@/lib/types';
 
 const StyledMain = styled.main`
   display: grid;
@@ -72,7 +72,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
         <title>Clearwater Chinese School</title>
       </head>
       <body className={`${primaryFont.variable} ${headerFont.variable}`}>
-        <div>
+        <StyledComponentsRegistry>
           <Header name={name} address={address} phone={phone} />
           <Navbar links={links} />
           <StyledMain>{children}</StyledMain>
@@ -84,7 +84,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
             blurb={blurb}
             content={content}
           />
-        </div>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

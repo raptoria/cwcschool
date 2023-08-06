@@ -1,4 +1,4 @@
-import { FileContent } from 'shared/getFiles';
+import { FileContent } from '@/lib/getFiles';
 
 interface Props {
   post: FileContent;

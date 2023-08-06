@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/cssinjs": "^1.16.1",
     "@ant-design/icons": "^5.1.4",
     "@linaria/babel-preset": "^4.5.3",
     "@linaria/core": "^4.5.3",

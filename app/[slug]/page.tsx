@@ -1,6 +1,6 @@
 import PageContent from '@/ui/PageContent';
-import { FileContent } from 'shared/getFiles';
-import { getBaseUrl } from 'shared/getBaseUrl';
+import { FileContent } from '@/lib/getFiles';
+import { getBaseUrl } from '@/lib/getBaseUrl';
 
 async function getPost(slug: string) {
   const res = await fetch(`${getBaseUrl()}/api/files?slug=${slug}`);
