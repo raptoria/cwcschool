@@ -23,6 +23,7 @@ const StyledFooter = styled.footer`
   color: var(--neutral-color);
   font-size: 1rem;
 
+
   ul {
     margin: 0;
     padding: 0;
@@ -46,23 +47,25 @@ const StyledFooter = styled.footer`
     color: var(--accent-color);
   }
 
-  .links {
-    width: 100%;
-  }
 
   @media all and (max-width: 768px) {
     grid-template-columns: 20rem;
     justify-content: center;
     grid-gap: var(--space-md);
+    padding: var(--space-md) 0;
+
+    .links {
+      justify-self: flex-start;
+    }
+
+    .about, .blurb, .links {
+      margin: 0 var(--space-md);
+    }
 
     ul li {
       margin:  var(--space-x-sm) 0;
     }
 
-
-  @media only screen and (max-width: 1200px) {
-    padding: var(--space-lg);
-  }
 `;
 
 const Footer: React.FC<IFooter> = ({
@@ -75,7 +78,7 @@ const Footer: React.FC<IFooter> = ({
 }) => {
   return (
     <StyledFooter>
-      <div>
+      <div className="about">
         <Image
           src="/assets/images/logo.png"
           alt="Clearwater Chinese School"

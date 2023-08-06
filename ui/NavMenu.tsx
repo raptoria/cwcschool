@@ -57,7 +57,7 @@ const MenuContainer = styled.div<Partial<NavMenuProps>>`
       display: block;
       font-size: 1.2rem;
 
-      .active:after {
+      a.active:after {
         border: none;
       }
     }

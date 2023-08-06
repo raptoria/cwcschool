@@ -1,6 +1,6 @@
 import { getAllFiles } from '@/lib/getFiles';
 import Post from './Post';
-import { Directory } from '@/lib/types';
+import { Directory } from '@/lib/shared';
 
 export default async function Main() {
   const allPosts = await getAllFiles(Directory.posts, [

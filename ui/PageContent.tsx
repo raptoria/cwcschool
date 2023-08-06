@@ -1,4 +1,5 @@
 import { FileContent } from '@/lib/getFiles';
+import { StyledContent } from '@/lib/shared';
 
 interface Props {
   post: FileContent;
@@ -7,7 +8,9 @@ interface Props {
 const PageContent = async ({ post }: Props) => {
   return (
     <>
-      {post && <div dangerouslySetInnerHTML={{ __html: post?.content }} />}
+      {post && (
+        <StyledContent dangerouslySetInnerHTML={{ __html: post?.content }} />
+      )}
       <p />
     </>
   );

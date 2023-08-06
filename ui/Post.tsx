@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { UserOutlined, ClockCircleOutlined } from '@ant-design/icons';
 import { styled } from '@linaria/react';
+import { StyledContent } from '@/lib/shared';
 
 const StyledMetadata = styled.div`
   display: grid;
@@ -37,7 +38,7 @@ const Post = ({
   author,
 }: Props) => {
   return (
-    <>
+    <StyledContent>
       <h2>{title}</h2>
       <StyledMetadata>
         {date ? (
@@ -78,7 +79,7 @@ const Post = ({
 
       <div dangerouslySetInnerHTML={{ __html: content }} />
       <p />
-    </>
+    </StyledContent>
   );
 };
 

@@ -5,18 +5,7 @@ import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
 import { styled } from '@linaria/react';
 import { getFileBySlug, getFileSlugs } from '@/lib/getFiles';
-import { Directory } from '@/lib/types';
-
-const StyledMain = styled.main`
-  display: grid;
-  grid-auto-columns: 50rem;
-  justify-content: center;
-  margin: var(--space-md);
-
-  @media only screen and (max-width: 960px) {
-    grid-auto-columns: auto;
-  }
-`;
+import { Directory } from '@/lib/shared';
 
 const primaryFont = Source_Sans_Pro({
   subsets: ['latin'],
@@ -73,7 +62,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
       <body className={`${primaryFont.variable} ${headerFont.variable}`}>
         <Header name={name} address={address} phone={phone} />
         <Navbar links={links} />
-        <StyledMain>{children}</StyledMain>
+        {children}
         <Footer
           name={name}
           address={address}

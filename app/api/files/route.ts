@@ -1,5 +1,5 @@
 import { FileContent, getFileByRoute } from '@/lib/getFiles';
-import { Directory } from '@/lib/types';
+import { Directory } from '@/lib/shared';
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
