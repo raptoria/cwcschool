@@ -1,9 +1,6 @@
 'use client';
-import React, { useEffect, useMemo, useState } from 'react';
-import { useRouter } from 'next/navigation';
-
+import { useEffect, useMemo, useState } from 'react';
 import ReactGA from 'react-ga4';
-
 import { usePathname } from 'next/navigation';
 import { NavMenu } from './NavMenu';
 
@@ -20,7 +17,6 @@ export interface MenuItem {
 const G4tag = process.env.NEXT_PUBLIC_G4TAG;
 
 const Navbar: React.FC<NavProps> = ({ links }) => {
-  const router = useRouter();
   const pathname = usePathname();
   const [activeMenu, setActiveMenu] = useState<undefined | string>(undefined);
 
@@ -31,7 +27,7 @@ const Navbar: React.FC<NavProps> = ({ links }) => {
   useEffect(() => {
     const path = pathname.replace('/', '');
     setActiveMenu(path);
-  }, [router]);
+  }, [pathname]);
 
   const getLinks = useMemo(() => {
     const menuItems: MenuItem[] = [

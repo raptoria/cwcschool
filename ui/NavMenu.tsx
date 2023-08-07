@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from '@linaria/react';
 import { MenuItem } from './Navbar';
+import Link from 'next/link';
 
 interface NavMenuProps {
   navLinks: Array<MenuItem>;
@@ -78,12 +79,12 @@ export const NavMenu: React.FC<NavMenuProps> = ({ navLinks, activeLink }) => {
           {navLinks &&
             navLinks.map((link) => (
               <li key={link.key}>
-                <a
+                <Link
                   href={`/${link.key}`}
                   className={link.key === activeLink ? 'active' : ''}
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
         </ul>
