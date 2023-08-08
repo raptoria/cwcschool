@@ -44,7 +44,6 @@ const Post = ({
         {date ? (
           <div>
             <ClockCircleOutlined
-              rev="author"
               style={{
                 color: `var(--primary-color)`,
                 marginRight: `var(--space-x-sm)`,
@@ -57,7 +56,6 @@ const Post = ({
         {author ? (
           <div>
             <UserOutlined
-              rev="author"
               style={{
                 color: `var(--secondary-color)`,
                 marginRight: `var(--space-x-sm)`,
