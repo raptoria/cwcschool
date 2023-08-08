@@ -3,7 +3,6 @@ import { Source_Sans_Pro, Bitter } from 'next/font/google';
 import Footer from '@/ui/Footer';
 import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
-import { styled } from '@linaria/react';
 import { getFileBySlug, getFileSlugs } from '@/lib/getFiles';
 import { Directory } from '@/lib/shared';
 

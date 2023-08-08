@@ -2,9 +2,9 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-export type FileContent = {
+export interface FileContent {
   [key: string]: string;
-};
+}
 
 export const getFileByRoute = async (
   fileDir: string,
