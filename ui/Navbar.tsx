@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useMemo, useState } from 'react';
 import ReactGA from 'react-ga4';
-import { usePathname } from 'next/navigation';
+import { useSelectedLayoutSegment } from 'next/navigation';
 import { NavMenu } from './NavMenu';
 
 interface NavProps {
@@ -17,17 +17,11 @@ export interface MenuItem {
 const G4tag = process.env.NEXT_PUBLIC_G4TAG;
 
 const Navbar: React.FC<NavProps> = ({ links }) => {
-  const pathname = usePathname();
-  const [activeMenu, setActiveMenu] = useState<undefined | string>(undefined);
+  const activeRoute = useSelectedLayoutSegment();
 
   useEffect(() => {
     ReactGA.initialize(G4tag as string);
   }, [G4tag]);
-
-  useEffect(() => {
-    const path = pathname.replace('/', '');
-    setActiveMenu(path);
-  }, [pathname]);
 
   const getLinks = useMemo(() => {
     const menuItems: MenuItem[] = [
@@ -40,7 +34,7 @@ const Navbar: React.FC<NavProps> = ({ links }) => {
     return menuItems;
   }, [links]);
 
-  return <NavMenu navLinks={getLinks} activeLink={activeMenu} />;
+  return <NavMenu navLinks={getLinks} activeLink={activeRoute || ''} />;
 };
 
 export default Navbar;
