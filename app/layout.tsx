@@ -6,6 +6,7 @@ import Navbar from '@/ui/Navbar';
 import { getFileBySlug, getFileSlugs } from '@/lib/getFiles';
 import { Directory } from '@/lib/shared';
 import { Metadata } from 'next';
+import { getPost } from '@/lib/helpers';
 
 const primaryFont = Source_Sans_Pro({
   subsets: ['latin'],
@@ -40,11 +41,7 @@ const getNavigationLinks = async () => {
 };
 
 export async function generateMetadata({}): Promise<Metadata> {
-  const info = await getFileBySlug(Directory.pageShared, 'info', [
-    'title',
-    'description',
-    'keywords',
-  ]);
+  const info = await getPost(Directory.pageShared, 'info');
   return {
     title: info?.title,
     description: info?.description,
@@ -53,15 +50,7 @@ export async function generateMetadata({}): Promise<Metadata> {
 }
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
-  const info = await getFileBySlug(Directory.pageShared, 'info', [
-    'title',
-    'description',
-    'keywords',
-    'address',
-    'phone',
-    'email',
-    'content',
-  ]);
+  const info = await getPost(Directory.pageShared, 'info');
 
   const { title, address, phone, email, description, content } = info;
   const links = await getNavigationLinks();

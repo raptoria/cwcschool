@@ -24,3 +24,9 @@ export const StyledContent = styled.main`
     }
   }
 `;
+
+export interface LinkItem {
+  key: string;
+  slug: string;
+  label: string;
+}
