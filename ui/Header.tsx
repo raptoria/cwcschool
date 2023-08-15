@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 
 interface HeaderProps {
-  name: string;
+  title: string;
   address: string;
   phone: string;
 }
@@ -28,12 +28,12 @@ const StyledHeader = styled.header`
   }
 `;
 
-const Header: React.FC<HeaderProps> = ({ name, address, phone }) => {
+const Header: React.FC<HeaderProps> = ({ title, address, phone }) => {
   return (
     <StyledHeader>
       <h1>
         <a href="/" title="Clearwater Chinese School">
-          {name}
+          {title}
         </a>
       </h1>
       <h3>

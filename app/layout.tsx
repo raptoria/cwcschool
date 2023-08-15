@@ -5,6 +5,7 @@ import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
 import { getFileBySlug, getFileSlugs } from '@/lib/getFiles';
 import { Directory } from '@/lib/shared';
+import { Metadata } from 'next';
 
 const primaryFont = Source_Sans_Pro({
   subsets: ['latin'],
@@ -38,36 +39,48 @@ const getNavigationLinks = async () => {
   return readableLinks;
 };
 
+export async function generateMetadata({}): Promise<Metadata> {
+  const info = await getFileBySlug(Directory.pageShared, 'info', [
+    'title',
+    'description',
+    'keywords',
+  ]);
+  return {
+    title: info?.title,
+    description: info?.description,
+    keywords: info?.keywords,
+  };
+}
+
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const info = await getFileBySlug(Directory.pageShared, 'info', [
-    'name',
+    'title',
+    'description',
+    'keywords',
     'address',
     'phone',
     'email',
-    'blurb',
     'content',
   ]);
 
-  const { name, address, phone, email, blurb, content } = info;
+  const { title, address, phone, email, description, content } = info;
   const links = await getNavigationLinks();
 
   return (
     <html>
       <head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <meta name="robots" content="noindex" />
-        <title>Clearwater Chinese School</title>
       </head>
       <body className={`${primaryFont.variable} ${headerFont.variable}`}>
-        <Header name={name} address={address} phone={phone} />
+        <Header title={title} address={address} phone={phone} />
         <Navbar links={links} />
         {children}
         <Footer
-          name={name}
+          title={title}
           address={address}
           phone={phone}
           email={email}
-          blurb={blurb}
+          description={description}
           content={content}
         />
       </body>

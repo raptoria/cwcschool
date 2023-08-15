@@ -3,10 +3,10 @@ import moment from 'moment';
 import Image from 'next/image';
 
 export interface IFooter {
-  name: string;
+  title: string;
   address: string;
   phone: string;
-  blurb: string;
+  description: string;
   content: string;
   email: string;
 }
@@ -69,10 +69,10 @@ const StyledFooter = styled.footer`
 `;
 
 const Footer: React.FC<IFooter> = ({
-  name,
+  title,
   address,
   phone,
-  blurb,
+  description,
   content,
   email,
 }) => {
@@ -92,10 +92,10 @@ const Footer: React.FC<IFooter> = ({
         </div>
       </div>
       <div className="blurb">
-        <p>{blurb}</p>
+        <p>{description}</p>
 
         <span className="disclaimer">
-          © {moment().year()} {name}
+          © {moment().year()} {title}
         </span>
       </div>
 
