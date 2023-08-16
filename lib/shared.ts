@@ -25,7 +25,7 @@ export const StyledContent = styled.main`
   }
 `;
 
-export interface LinkItem extends String {
+export interface LinkItem {
   key: string;
   slug?: string;
   label: string;

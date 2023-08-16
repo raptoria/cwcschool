@@ -3,7 +3,7 @@ import { Source_Sans_Pro, Bitter } from 'next/font/google';
 import Footer from '@/ui/Footer';
 import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
-import { Directory, LinkItem } from '@/lib/shared';
+import { Directory } from '@/lib/shared';
 import { Metadata } from 'next';
 import { getPost, getPostSlugs } from '@/lib/helpers';
 

@@ -1,18 +1,13 @@
 import { getAllFiles } from '@/lib/getFiles';
 import Post from './Post';
 import { Directory } from '@/lib/shared';
+import { getFields } from '@/lib/helpers';
 
 export default async function Main() {
-  const allPosts = await getAllFiles(Directory.posts, [
-    'title',
-    'imageSrc',
-    'imageAlt',
-    'imageWidth',
-    'imageHeight',
-    'content',
-    'author',
-    'date',
-  ]);
+  const allPosts = await getAllFiles(
+    Directory.posts,
+    getFields(Directory.posts)
+  );
 
   return (
     <>

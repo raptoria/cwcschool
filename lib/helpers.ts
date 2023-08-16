@@ -52,5 +52,17 @@ export const getFields = (directory: string) => {
         'email',
         'content',
       ];
+
+    case Directory.posts:
+      return [
+        'title',
+        'imageSrc',
+        'imageAlt',
+        'imageWidth',
+        'imageHeight',
+        'content',
+        'author',
+        'date',
+      ];
   }
 };
