@@ -1,6 +1,6 @@
-import { FileContent } from '@/lib/getFiles';
+import { FileContent, getFileSlugs } from '@/lib/getFiles';
 import { getBaseUrl } from '@/lib/getBaseUrl';
-import { Directory } from './shared';
+import { Directory, LinkItem } from './shared';
 
 export async function getPostByRoute(slug: string) {
   const res = await fetch(`${getBaseUrl()}/api/post-by-route?slug=${slug}`);
@@ -12,6 +12,18 @@ export async function getPostByRoute(slug: string) {
 
   const fileContent = (await res.json()) as FileContent;
   return fileContent;
+}
+
+export async function getPostSlugs(directory: string) {
+  const res = await fetch(`${getBaseUrl()}/api/posts?directory=${directory}`);
+
+  if (!res.ok) {
+    // Render the closest `error.js` Error Boundary
+    throw new Error('Something went wrong!');
+  }
+
+  const postSlugs: Array<LinkItem> = await res.json();
+  return postSlugs;
 }
 
 export const getPost = async (directory: string, slug: string) => {

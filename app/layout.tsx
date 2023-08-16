@@ -3,10 +3,9 @@ import { Source_Sans_Pro, Bitter } from 'next/font/google';
 import Footer from '@/ui/Footer';
 import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
-import { getFileBySlug, getFileSlugs } from '@/lib/getFiles';
-import { Directory } from '@/lib/shared';
+import { Directory, LinkItem } from '@/lib/shared';
 import { Metadata } from 'next';
-import { getPost } from '@/lib/helpers';
+import { getPost, getPostSlugs } from '@/lib/helpers';
 
 const primaryFont = Source_Sans_Pro({
   subsets: ['latin'],
@@ -20,26 +19,6 @@ const headerFont = Bitter({
   variable: '--header-font',
 });
 
-export async function generateStaticParams() {
-  const params = await getNavigationLinks();
-  return params;
-}
-
-const getNavigationLinks = async () => {
-  const links = await getFileSlugs(Directory.pageContent);
-
-  const readableLinks = links.map((link) => {
-    const linkRoute = link.replace(/^[^\-]+-(?<title>.+)\.md$/, '$<title>');
-    return {
-      label: linkRoute.charAt(0).toUpperCase() + linkRoute.slice(1),
-      key: linkRoute,
-      slug: linkRoute,
-    };
-  });
-
-  return readableLinks;
-};
-
 export async function generateMetadata({}): Promise<Metadata> {
   const info = await getPost(Directory.pageShared, 'info');
   return {
@@ -51,9 +30,9 @@ export async function generateMetadata({}): Promise<Metadata> {
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const info = await getPost(Directory.pageShared, 'info');
-
   const { title, address, phone, email, description, content } = info;
-  const links = await getNavigationLinks();
+
+  const links = await getPostSlugs(Directory.pageContent);
 
   return (
     <html>

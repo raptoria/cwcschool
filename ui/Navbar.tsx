@@ -3,15 +3,10 @@ import { useEffect, useMemo, useState } from 'react';
 import ReactGA from 'react-ga4';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { NavMenu } from './NavMenu';
+import { LinkItem } from '@/lib/shared';
 
 interface NavProps {
-  links: Array<MenuItem>;
-}
-
-export interface MenuItem {
-  key: string;
-  label: string;
-  slug?: string;
+  links: Array<LinkItem>;
 }
 
 const G4tag = process.env.NEXT_PUBLIC_G4TAG;
@@ -24,7 +19,7 @@ const Navbar: React.FC<NavProps> = ({ links }) => {
   }, [G4tag]);
 
   const getLinks = useMemo(() => {
-    const menuItems: MenuItem[] = [
+    const menuItems: LinkItem[] = [
       {
         label: 'Home',
         key: '',

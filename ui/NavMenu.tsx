@@ -1,10 +1,10 @@
 import React from 'react';
 import { styled } from '@linaria/react';
-import { MenuItem } from './Navbar';
 import Link from 'next/link';
+import { LinkItem } from '@/lib/shared';
 
 interface NavMenuProps {
-  navLinks: Array<MenuItem>;
+  navLinks: Array<LinkItem>;
   activeLink: string | undefined;
 }
 

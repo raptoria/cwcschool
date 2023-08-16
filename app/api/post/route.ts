@@ -6,9 +6,9 @@ export async function GET(req: Request) {
   const directory = searchParams.get('directory') || '';
   const slug = searchParams.get('slug') || '';
 
-  const info = await getFileBySlug(directory, slug, getFields(directory));
+  const post = await getFileBySlug(directory, slug, getFields(directory));
 
-  return new Response(JSON.stringify(info), {
+  return new Response(JSON.stringify(post), {
     status: 200,
     headers: {
       'content-type': 'application/json',
