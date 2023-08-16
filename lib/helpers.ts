@@ -1,6 +1,39 @@
-import { FileContent, getFileSlugs } from '@/lib/getFiles';
-import { getBaseUrl } from '@/lib/getBaseUrl';
+import {
+  FileContent,
+  getFileByRoute,
+  getFileBySlug,
+  getFileSlugs,
+} from '@/lib/getFiles';
+import { getBaseUrl } from './getBaseUrl';
 import { Directory, LinkItem } from './shared';
+
+// export async function getPostByRoute(slug: string) {
+//   const fileContent: FileContent | null = await getFileByRoute(
+//     Directory.pageContent,
+//     slug,
+//     ['content']
+//   );
+//   return fileContent;
+// }
+
+// export async function getPostSlugs(directory: string) {
+//   const links = await getFileSlugs(directory);
+
+//   const readableLinks = links.map((link) => {
+//     const linkRoute = link.replace(/^[^\-]+-(?<title>.+)\.md$/, '$<title>');
+//     return {
+//       label: linkRoute.charAt(0).toUpperCase() + linkRoute.slice(1),
+//       key: linkRoute,
+//       slug: linkRoute,
+//     };
+//   });
+//   return readableLinks;
+// }
+
+// export const getPost = async (directory: string, slug: string) => {
+//   const post = await getFileBySlug(directory, slug, getFields(directory));
+//   return post;
+// };
 
 export async function getPostByRoute(slug: string) {
   const res = await fetch(`${getBaseUrl()}/api/post-by-route?slug=${slug}`);
