@@ -9,7 +9,7 @@ import { getPost, getPostSlugs } from '@/lib/helpers';
 
 const primaryFont = Source_Sans_Pro({
   subsets: ['latin'],
-  weight: '300',
+  weight: '400',
   variable: '--default-font',
 });
 
