@@ -54,6 +54,11 @@
     margin-left: 4rem;
   }
 
+   iframe {
+    max-height: 560px;
+    max-width: 560px;
+  }
+
   @media all and (max-width: 768px) {
     .gallery {
       grid-template-columns: auto;
