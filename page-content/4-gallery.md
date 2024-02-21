@@ -3,9 +3,6 @@
 <div class="gallery">
 <div>
 
-<h3>2024</h3>
-<p><a href="https://photos.app.goo.gl/ei2CdmAJfqkSy6Ud7" target="_BLANK">Chinese New Year Dragon </a></p>
-
 <h3>2020</h3>
 <p><a href="https://photos.google.com/share/AF1QipPaP5UZSgof7-Z01TX-42ilt1MV5o8x0iPn8JRTlJMmys9h4DqpYQrQmYzRDT1MlQ?key=b2FhWTdDdFlQRjlXR2xERlFJVDFZc2tGZE9qcmtB" target="_BLANK"> Chinese New Year Rat</a></p>
 
@@ -31,6 +28,7 @@
 
 <h3>2012</h3>
 <p><a href="http://www.youtube.com/user/CWChineseSchool/videos">Performance Videos</a></p>
+
 </div>
 <img class="alignRight" src="assets/images/dragondancing.gif" width="400" height="300" />
 </div>
