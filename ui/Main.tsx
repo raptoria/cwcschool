@@ -1,4 +1,4 @@
-import { getAllFiles } from '@/lib/getFiles';
+import { FileContent, getAllFiles } from '@/lib/getFiles';
 import Post from './Post';
 import { Directory } from '@/lib/shared';
 import { getFields } from '@/lib/helpers';
