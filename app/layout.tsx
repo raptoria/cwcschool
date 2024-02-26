@@ -1,5 +1,5 @@
 import '@/styles/globals.css';
-import { Source_Sans_Pro, Bitter } from 'next/font/google';
+import { Source_Sans_3, Bitter } from 'next/font/google';
 import Footer from '@/ui/Footer';
 import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
@@ -7,7 +7,7 @@ import { Directory } from '@/lib/shared';
 import { Metadata } from 'next';
 import { getPost, getPostSlugs } from '@/lib/helpers';
 
-const primaryFont = Source_Sans_Pro({
+const primaryFont = Source_Sans_3({
   subsets: ['latin'],
   weight: '400',
   variable: '--default-font',
