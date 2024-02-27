@@ -2,7 +2,7 @@ import { FileContent } from '@/lib/getFiles';
 import { getBaseUrl } from './getBaseUrl';
 import { Directory, LinkItem } from './shared';
 
-export async function getPostByRoute(slug: string) {
+export async function getPageByRoute(slug: string) {
   const res = await fetch(`${getBaseUrl()}/api/post-by-route?slug=${slug}`);
 
   if (!res.ok) {

@@ -1,8 +1,8 @@
 import { defineType } from 'sanity';
 
 export default defineType({
-  name: 'posts',
-  title: 'Post',
+  name: 'page',
+  title: 'Page',
   type: 'document',
   fields: [
     {

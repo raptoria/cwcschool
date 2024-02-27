@@ -2,14 +2,14 @@ import { FileContent } from '@/lib/getFiles';
 import { StyledContent } from '@/lib/shared';
 
 interface Props {
-  post: FileContent;
+  content: FileContent;
 }
 
-const PageContent = async ({ post }: Props) => {
+const PageContent = async ({ content }: Props) => {
   return (
     <>
-      {post && (
-        <StyledContent dangerouslySetInnerHTML={{ __html: post?.content }} />
+      {content && (
+        <StyledContent dangerouslySetInnerHTML={{ __html: content?.content }} />
       )}
       <p />
     </>

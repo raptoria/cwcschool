@@ -22,6 +22,7 @@
     "paths": {
       "@/ui/*": ["ui/*"],
       "@/lib/*": ["lib/*"],
+      "@/sanity/*": ["sanity/*"],
       "@/styles/*": ["styles/*"]
     },
     "plugins": [
