@@ -1,4 +1,4 @@
-import { getPageByRoute, getPostSlugs } from '@/lib/helpers';
+import { getPostSlugs } from '@/lib/helpers';
 import { Directory } from '@/lib/shared';
 import PageContent from '@/ui/PageContent';
 import { QueryParams, SanityDocument } from 'next-sanity';
@@ -11,15 +11,12 @@ export async function generateStaticParams() {
 }
 
 const Page = async ({ params }: { params: QueryParams }) => {
-  //{ }
-  // const content = await loadQuery<SanityDocument>(PAGE_QUERY, params);
-  // console.log(params);
-  const content = await getPageByRoute(params.slug);
+  const { data } = await loadQuery<SanityDocument>(PAGE_QUERY, params);
 
   return (
     <>
       {/* @ts-expect-error Server Component */}
-      <PageContent content={content} />
+      <PageContent content={data?.content} />
     </>
   );
 };

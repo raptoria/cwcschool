@@ -9,7 +9,7 @@ const PageContent = async ({ content }: Props) => {
   return (
     <>
       {content && (
-        <StyledContent dangerouslySetInnerHTML={{ __html: content?.content }} />
+        <StyledContent dangerouslySetInnerHTML={{ __html: content }} />
       )}
       <p />
     </>

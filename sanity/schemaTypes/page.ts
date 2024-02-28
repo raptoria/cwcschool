@@ -11,10 +11,15 @@ export default defineType({
       type: 'string',
     },
     {
+      name: 'route',
+      title: 'Route',
+      type: 'string',
+    },
+    {
       type: 'markdown',
-      description: 'Enter markdown for the post below!',
-      name: 'post',
-      title: 'Post content',
+      description: 'Enter markdown for the page below!',
+      name: 'content',
+      title: 'Page content',
     },
   ],
 });
