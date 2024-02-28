@@ -21,7 +21,7 @@ const Navbar: React.FC<NavProps> = ({ links }) => {
   const getLinks = useMemo(() => {
     const menuItems: LinkItem[] = [
       {
-        label: 'Home',
+        title: 'Home',
         key: '',
       },
       ...links,

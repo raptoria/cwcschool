@@ -1,13 +1,12 @@
-import { getPostSlugs } from '@/lib/helpers';
-import { Directory } from '@/lib/shared';
+import { LinkItem } from '@/lib/shared';
 import PageContent from '@/ui/PageContent';
 import { QueryParams, SanityDocument } from 'next-sanity';
 import { loadQuery } from '@/sanity/lib/store';
-import { PAGE_QUERY } from '@/sanity/lib/queries';
+import { PAGE_QUERY, PAGES_QUERY } from '@/sanity/lib/queries';
 
 export async function generateStaticParams() {
-  const params = await getPostSlugs(Directory.pageContent);
-  return params;
+  const { data } = await loadQuery<SanityDocument<LinkItem[]>>(PAGES_QUERY);
+  return data;
 }
 
 const Page = async ({ params }: { params: QueryParams }) => {

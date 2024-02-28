@@ -11,9 +11,14 @@ export default defineType({
       type: 'string',
     },
     {
-      name: 'route',
-      title: 'Route',
+      name: 'slug',
+      title: 'Slug',
       type: 'string',
+    },
+    {
+      name: 'order',
+      title: 'Order',
+      type: 'number',
     },
     {
       type: 'markdown',

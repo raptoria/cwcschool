@@ -83,7 +83,7 @@ export const NavMenu: React.FC<NavMenuProps> = ({ navLinks, activeLink }) => {
                   href={`/${link.key}`}
                   className={link.key === activeLink ? 'active' : ''}
                 >
-                  {link.label}
+                  {link.title}
                 </Link>
               </li>
             ))}

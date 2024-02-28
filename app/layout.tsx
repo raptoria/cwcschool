@@ -3,9 +3,12 @@ import { Source_Sans_3, Bitter } from 'next/font/google';
 import Footer from '@/ui/Footer';
 import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
-import { Directory } from '@/lib/shared';
+import { Directory, LinkItem } from '@/lib/shared';
 import { Metadata } from 'next';
-import { getPost, getPostSlugs } from '@/lib/helpers';
+import { getPost } from '@/lib/helpers';
+import { PAGES_QUERY } from '@/sanity/lib/queries';
+import { SanityDocument } from 'next-sanity';
+import { loadQuery } from '@/sanity/lib/store';
 
 const primaryFont = Source_Sans_3({
   subsets: ['latin'],
@@ -32,7 +35,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const info = await getPost(Directory.pageShared, 'info');
   const { title, address, phone, email, description, content } = info;
 
-  const links = await getPostSlugs(Directory.pageContent);
+  const { data } = await loadQuery<SanityDocument<LinkItem[]>>(PAGES_QUERY);
 
   return (
     <html>
@@ -41,7 +44,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
       </head>
       <body className={`${primaryFont.variable} ${headerFont.variable}`}>
         <Header title={title} address={address} phone={phone} />
-        <Navbar links={links} />
+        <Navbar links={data} />
         {children}
         <Footer
           title={title}
