@@ -1,9 +1,13 @@
 import { styled } from '@linaria/react';
 
-export enum Directory {
-  pageContent = 'page-content',
-  posts = 'posts',
-  pageShared = 'page-shared',
+export interface PostContent {
+  [key: string]: string;
+}
+
+export interface Metadata {
+  title: string;
+  description: string;
+  keywords: string;
 }
 
 export const StyledContent = styled.main`

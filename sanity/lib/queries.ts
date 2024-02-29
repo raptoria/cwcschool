@@ -10,7 +10,22 @@ const POSTS_QUERY = groq`*[_type == "post"]  | order(date desc){
     "imageHeight": image.height,
     content
 }`;
-const SHARED_QUERY = groq`*[_type == "shared"][0]`;
+
+const SHARED_QUERY = groq`*[_type == "shared"][0]{
+  title, 
+  address, 
+  phone, 
+  email, 
+  description, 
+  content
+}`;
+
+const METADATA_QUERY = groq`*[_type == "shared"][0]{
+  title, 
+  description, 
+  keywords
+}`;
+
 const PAGE_QUERY = groq`*[_type == "page" && slug == $slug][0]{
     content
   }`;
@@ -19,4 +34,4 @@ const PAGES_QUERY = groq`*[_type == "page"] | order(order asc){
     title,
     "key": slug
   }`;
-export { POSTS_QUERY, SHARED_QUERY, PAGE_QUERY, PAGES_QUERY };
+export { POSTS_QUERY, SHARED_QUERY, METADATA_QUERY, PAGE_QUERY, PAGES_QUERY };

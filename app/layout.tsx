@@ -3,10 +3,13 @@ import { Source_Sans_3, Bitter } from 'next/font/google';
 import Footer from '@/ui/Footer';
 import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
-import { Directory, LinkItem } from '@/lib/shared';
+import { LinkItem } from '@/lib/shared';
 import { Metadata } from 'next';
-import { getPost } from '@/lib/helpers';
-import { PAGES_QUERY } from '@/sanity/lib/queries';
+import {
+  PAGES_QUERY,
+  SHARED_QUERY,
+  METADATA_QUERY,
+} from '@/sanity/lib/queries';
 import { SanityDocument } from 'next-sanity';
 import { loadQuery } from '@/sanity/lib/store';
 
@@ -23,17 +26,14 @@ const headerFont = Bitter({
 });
 
 export async function generateMetadata({}): Promise<Metadata> {
-  const info = await getPost(Directory.pageShared, 'info');
-  return {
-    title: info?.title,
-    description: info?.description,
-    keywords: info?.keywords,
-  };
+  const { data } = await loadQuery<SanityDocument<Metadata>>(METADATA_QUERY);
+  return data;
 }
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
-  const info = await getPost(Directory.pageShared, 'info');
-  const { title, address, phone, email, description, content } = info;
+  const {
+    data: { title, address, phone, email, description, content },
+  } = await loadQuery<SanityDocument>(SHARED_QUERY);
 
   const { data } = await loadQuery<SanityDocument<LinkItem[]>>(PAGES_QUERY);
 
