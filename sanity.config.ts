@@ -9,8 +9,8 @@ import { markdownSchema } from 'sanity-plugin-markdown';
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 
-import { schema } from '@/sanity/schema';
-import { apiVersion, dataset, projectId } from '@/sanity/env';
+import { schema } from './sanity/schema';
+import { apiVersion, dataset, projectId } from './sanity/env';
 
 export default defineConfig({
   basePath: '/studio',
