@@ -1,7 +1,7 @@
 import { defineType } from 'sanity';
 
 export default defineType({
-  name: 'posts',
+  name: 'post',
   title: 'Post',
   type: 'document',
   fields: [
@@ -11,10 +11,42 @@ export default defineType({
       type: 'string',
     },
     {
+      name: 'date',
+      title: 'Date',
+      type: 'date',
+    },
+    {
+      name: 'author',
+      title: 'Author',
+      type: 'string',
+    },
+    {
+      title: 'image',
+      name: 'Image',
+      type: 'image',
+      fields: [
+        {
+          title: 'Image alt',
+          name: 'alt',
+          type: 'string',
+        },
+        {
+          title: 'width',
+          name: 'width',
+          type: 'string',
+        },
+        {
+          title: 'height',
+          name: 'height',
+          type: 'string',
+        },
+      ],
+    },
+    {
       type: 'markdown',
       description: 'Enter markdown for the post below!',
-      name: 'post',
-      title: 'Post content',
+      name: 'content',
+      title: 'Page content',
     },
   ],
 });
