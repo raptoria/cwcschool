@@ -21,8 +21,8 @@ export default defineType({
       type: 'string',
     },
     {
-      title: 'image',
-      name: 'Image',
+      title: 'Image',
+      name: 'image',
       type: 'image',
       fields: [
         {
