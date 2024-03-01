@@ -1,13 +1,39 @@
 import { styled } from '@linaria/react';
 
-export interface PostContent {
-  [key: string]: string;
+export interface IPostContent {
+  title: string;
+  imageSrc: string;
+  imageAlt: string;
+  imageWidth: string;
+  imageHeight: string;
+  content: any;
+  author: string;
+  date: string;
 }
 
-export interface Metadata {
+export interface IPageContent {
+  content: any;
+}
+
+export interface IMetadata {
   title: string;
   description: string;
   keywords: string;
+}
+
+export interface ISharedContent {
+  title: string;
+  address: string;
+  phone: string;
+  email: string;
+  description: string;
+  content: string;
+}
+
+export interface LinkItem {
+  key: string;
+  slug?: string;
+  title: string;
 }
 
 export const StyledContent = styled.main`
@@ -28,9 +54,3 @@ export const StyledContent = styled.main`
     }
   }
 `;
-
-export interface LinkItem {
-  key: string;
-  slug?: string;
-  title: string;
-}

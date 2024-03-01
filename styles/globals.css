@@ -52,6 +52,7 @@
 
   .gallery img.alignRight {
     margin-left: 4rem;
+    max-width: 500px;
   }
 
    iframe {

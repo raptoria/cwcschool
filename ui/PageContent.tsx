@@ -1,7 +1,7 @@
-import { StyledContent, PostContent } from '@/lib/shared';
+import { StyledContent, IPageContent } from '@/lib/shared';
 
 interface Props {
-  content: PostContent;
+  content: IPageContent;
 }
 
 const PageContent = async ({ content }: Props) => {

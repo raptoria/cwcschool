@@ -3,7 +3,7 @@ import { Source_Sans_3, Bitter } from 'next/font/google';
 import Footer from '@/ui/Footer';
 import Header from '@/ui/Header';
 import Navbar from '@/ui/Navbar';
-import { LinkItem } from '@/lib/shared';
+import { IMetadata, ISharedContent, LinkItem } from '@/lib/shared';
 import { Metadata } from 'next';
 import {
   PAGES_QUERY,
@@ -26,14 +26,14 @@ const headerFont = Bitter({
 });
 
 export async function generateMetadata({}): Promise<Metadata> {
-  const { data } = await loadQuery<SanityDocument<Metadata>>(METADATA_QUERY);
+  const { data } = await loadQuery<SanityDocument<IMetadata>>(METADATA_QUERY);
   return data;
 }
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const {
     data: { title, address, phone, email, description, content },
-  } = await loadQuery<SanityDocument>(SHARED_QUERY);
+  } = await loadQuery<SanityDocument<ISharedContent>>(SHARED_QUERY);
 
   const { data } = await loadQuery<SanityDocument<LinkItem[]>>(PAGES_QUERY);
 
