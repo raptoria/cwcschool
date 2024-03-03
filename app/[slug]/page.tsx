@@ -1,4 +1,4 @@
-import { LinkItem } from '@/lib/shared';
+import { IPageContent, LinkItem } from '@/lib/shared';
 import PageContent from '@/ui/PageContent';
 import { QueryParams, SanityDocument } from 'next-sanity';
 import { loadQuery } from '@/sanity/lib/store';
@@ -10,7 +10,10 @@ export async function generateStaticParams() {
 }
 
 const Page = async ({ params }: { params: QueryParams }) => {
-  const { data } = await loadQuery<SanityDocument>(PAGE_QUERY, params);
+  const { data } = await loadQuery<SanityDocument<IPageContent>>(
+    PAGE_QUERY,
+    params
+  );
 
   return (
     <>
