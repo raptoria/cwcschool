@@ -33,12 +33,12 @@ export default defineType({
         {
           title: 'width',
           name: 'width',
-          type: 'string',
+          type: 'number',
         },
         {
           title: 'height',
           name: 'height',
-          type: 'string',
+          type: 'number',
         },
       ],
     },

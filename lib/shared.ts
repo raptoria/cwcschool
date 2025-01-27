@@ -4,8 +4,8 @@ export interface IPostContent {
   title: string;
   imageSrc: string;
   imageAlt: string;
-  imageWidth: string;
-  imageHeight: string;
+  width: number;
+  height: number;
   content: any;
   author: string;
   date: string;

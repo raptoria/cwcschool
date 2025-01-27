@@ -14,8 +14,8 @@ export default async function Main() {
           title,
           imageSrc,
           imageAlt,
-          imageWidth,
-          imageHeight,
+          width,
+          height,
           content,
           author,
           date,
@@ -28,8 +28,8 @@ export default async function Main() {
             imageAlt={imageAlt}
             author={author}
             date={date}
-            imageWidth={parseInt(imageWidth) || 200}
-            imageHeight={parseInt(imageHeight) || 200}
+            imageWidth={width || 200}
+            imageHeight={height || 200}
           />
         )
       )}
