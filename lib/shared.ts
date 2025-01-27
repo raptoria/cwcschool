@@ -42,15 +42,10 @@ export const StyledContent = styled.main`
   justify-content: center;
   margin: var(--space-md);
 
-  img {
-    height: auto;
-    width: auto;
-  }
-
   @media all and (max-width: 768px) {
-    grid-auto-columns: auto;
+    grid-auto-columns: 1fr;
     img {
-      width: 70%;
+      width: 100%;
     }
   }
 `;

@@ -6,8 +6,8 @@ const POSTS_QUERY = groq`*[_type == "post"]  | order(date desc){
     author,
     "imageSrc": image.asset->url,
     "imageAlt": image.alt,
-    "imageWidth": image.width,
-    "imageHeight": image.height,
+    "width": image.width,
+    "height": image.height,
     content
 }`;
 
