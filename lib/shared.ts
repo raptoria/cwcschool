@@ -46,6 +46,7 @@ export const StyledContent = styled.main`
     grid-auto-columns: 1fr;
     img {
       width: 100%;
+      height: 100%;
     }
   }
 `;
